@@ -7,15 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF40626A1D62A29D006D580E /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4062691D62A29D006D580E /* LocationService.swift */; };
+		DF40626E1D62B248006D580E /* WebApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF40626D1D62B248006D580E /* WebApiClient.swift */; };
+		DF4062721D648865006D580E /* ArrayDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4062711D648865006D580E /* ArrayDataSource.swift */; };
 		DF7AA2881D6060130024C360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AA2871D6060130024C360 /* AppDelegate.swift */; };
 		DF7AA28A1D6060130024C360 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AA2891D6060130024C360 /* MasterViewController.swift */; };
 		DF7AA28C1D6060130024C360 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7AA28B1D6060130024C360 /* DetailViewController.swift */; };
 		DF7AA28F1D6060130024C360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7AA28D1D6060130024C360 /* Main.storyboard */; };
 		DF7AA2911D6060130024C360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF7AA2901D6060130024C360 /* Assets.xcassets */; };
 		DF7AA2941D6060130024C360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF7AA2921D6060130024C360 /* LaunchScreen.storyboard */; };
+		DF7AA29C1D60602E0024C360 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF7AA29B1D60602E0024C360 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DF4062691D62A29D006D580E /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		DF40626D1D62B248006D580E /* WebApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebApiClient.swift; path = ../WebApiClient.swift; sourceTree = "<group>"; };
+		DF4062711D648865006D580E /* ArrayDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayDataSource.swift; sourceTree = "<group>"; };
 		DF7AA2841D6060130024C360 /* AroundCity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AroundCity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF7AA2871D6060130024C360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF7AA2891D6060130024C360 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +31,7 @@
 		DF7AA2901D6060130024C360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF7AA2931D6060130024C360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF7AA2951D6060130024C360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF7AA29B1D60602E0024C360 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,15 +39,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7AA29C1D60602E0024C360 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DF40626B1D62A2AF006D580E /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DF7AA2891D6060130024C360 /* MasterViewController.swift */,
+				DF7AA28B1D6060130024C360 /* DetailViewController.swift */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		DF40626C1D62B207006D580E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DF4062711D648865006D580E /* ArrayDataSource.swift */,
+				DF40626D1D62B248006D580E /* WebApiClient.swift */,
+				DF4062691D62A29D006D580E /* LocationService.swift */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		DF7AA27B1D6060130024C360 = {
 			isa = PBXGroup;
 			children = (
+				DF7AA29B1D60602E0024C360 /* MapKit.framework */,
 				DF7AA2861D6060130024C360 /* AroundCity */,
 				DF7AA2851D6060130024C360 /* Products */,
 			);
@@ -56,10 +85,10 @@
 		DF7AA2861D6060130024C360 /* AroundCity */ = {
 			isa = PBXGroup;
 			children = (
-				DF7AA2871D6060130024C360 /* AppDelegate.swift */,
-				DF7AA2891D6060130024C360 /* MasterViewController.swift */,
-				DF7AA28B1D6060130024C360 /* DetailViewController.swift */,
+				DF40626B1D62A2AF006D580E /* View Controller */,
+				DF40626C1D62B207006D580E /* Utility */,
 				DF7AA28D1D6060130024C360 /* Main.storyboard */,
+				DF7AA2871D6060130024C360 /* AppDelegate.swift */,
 				DF7AA2901D6060130024C360 /* Assets.xcassets */,
 				DF7AA2921D6060130024C360 /* LaunchScreen.storyboard */,
 				DF7AA2951D6060130024C360 /* Info.plist */,
@@ -100,6 +129,14 @@
 					DF7AA2831D6060130024C360 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5KRYNNRRYA;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -140,7 +177,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF7AA28C1D6060130024C360 /* DetailViewController.swift in Sources */,
+				DF40626E1D62B248006D580E /* WebApiClient.swift in Sources */,
 				DF7AA28A1D6060130024C360 /* MasterViewController.swift in Sources */,
+				DF40626A1D62A29D006D580E /* LocationService.swift in Sources */,
+				DF4062721D648865006D580E /* ArrayDataSource.swift in Sources */,
 				DF7AA2881D6060130024C360 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,7 +296,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AroundCity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liuzhihui.AroundCity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryushiki.demonstrate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -267,7 +307,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AroundCity/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.liuzhihui.AroundCity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryushiki.demonstrate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -291,6 +331,7 @@
 				DF7AA29A1D6060130024C360 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
