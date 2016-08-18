@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias TableViewCellConfigureBlock = (cell:UITableViewCell, item:Dictionary<String,String>) -> ()
+typealias TableViewCellConfigureBlock = (cell:UITableViewCell, item:NSDictionary) -> ()
 
 class ArrayDataSource: NSObject, UITableViewDataSource {
 
@@ -40,7 +40,7 @@ class ArrayDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath)
         
         let item = self.itemAtIndexPath(indexPath)
-        self.configureCellBlock(cell: cell, item: item as! Dictionary<String, String>)
+        self.configureCellBlock(cell: cell, item: item as! NSDictionary)
         return cell
     }
 }

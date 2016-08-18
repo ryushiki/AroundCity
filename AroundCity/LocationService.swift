@@ -19,7 +19,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     var deferredLocationUpdate = false
-    var nowLoc: CLLocationCoordinate2D?
+    dynamic var nowLoc: CLLocation?
     
     func initLocationManager() {
         locationManager.delegate = self
@@ -29,7 +29,9 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     func startUpdateLocaton() {
+        initLocationManager()
         locationManager.startUpdatingLocation()
+        nowLoc = CLLocation.init(latitude: 36.561325, longitude: 136.656205)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -48,6 +50,6 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         deferredLocationUpdate = false
         
         //get open source information
-        nowLoc = manager.location?.coordinate
+        nowLoc = manager.location
     }
 }
