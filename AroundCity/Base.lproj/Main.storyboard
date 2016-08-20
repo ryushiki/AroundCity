@@ -67,7 +67,7 @@
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="mapView" destination="hbo-HK-xhZ" id="o8T-pi-Bik"/>
-                        <outlet property="textView" destination="YRV-OV-NAA" id="j3R-hz-Oq7"/>
+                        <outlet property="textView" destination="YRV-OV-NAA" id="JZ0-kR-wYw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>

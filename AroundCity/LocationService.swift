@@ -20,22 +20,26 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     var deferredLocationUpdate = false
     dynamic var nowLoc: CLLocation?
+    var locationItems:[CLLocation] = [CLLocation]()
     
     func initLocationManager() {
         locationManager.delegate = self
         locationManager.activityType = CLActivityType.Fitness
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        //get permission of using Location Service
+        self.locationManager.requestWhenInUseAuthorization()
     }
     
     func startUpdateLocaton() {
         initLocationManager()
         locationManager.startUpdatingLocation()
-        nowLoc = CLLocation.init(latitude: 36.561325, longitude: 136.656205)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //
+        locationItems += locations
+//        nowLoc = CLLocation.init(latitude: 36.561325, longitude: 136.656205)
         if !deferredLocationUpdate {
             let distance: CLLocationDistance = 100.0
             let time: NSTimeInterval = 60.0

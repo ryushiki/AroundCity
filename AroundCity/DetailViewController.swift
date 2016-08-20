@@ -16,28 +16,26 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
             self.mapView.delegate = self
         }
     }
+    
+    
     @IBOutlet weak var textView: UITextView!
     
-    var detailItem: Dictionary<String, String>?
+    var detailItem: NSDictionary?
     var locationItems: [CLLocation]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
+        //update the view
+        self.configureView()
     }
     
-    func setDetailItem(newDetailItem: Dictionary<String, String>, locationItems:[CLLocation]) {
-        if detailItem == nil || detailItem! != newDetailItem {
-            detailItem = newDetailItem
-        }
+    func setDetailItem(newDetailItem: NSDictionary, locationItems:[CLLocation]) {
+        detailItem = newDetailItem
         
         if self.locationItems == nil || self.locationItems! != locationItems {
             self.locationItems = locationItems
         }
-        
-        //update the view
-        self.configureView()
     }
     
     func configureView() {
@@ -46,17 +44,17 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
             let address = detailItem["address"]
             let tel = detailItem["tel"]
             let weburl = detailItem["url"]
-            let description = "\(name)\n\(address)\nTEL:\(tel)\n\(weburl)"
+            let description = "\(name!)\n\(address!)\nTEL:\(tel!)\n\(weburl!)"
             self.textView.text = description
             
             let latitude = (detailItem as NSDictionary).valueForKeyPath("coordinates.latitude")
             let longitude = (detailItem as NSDictionary).valueForKeyPath("coordinates.longitude")
             
             let annotation = MKPointAnnotation()
-            let loc = CLLocationCoordinate2DMake((latitude as! NSString).doubleValue,(longitude as! NSString).doubleValue)
+            let loc = CLLocationCoordinate2DMake(latitude as! Double,longitude as! Double)
             annotation.coordinate = loc
-            annotation.title = name
-            annotation.subtitle = address
+            annotation.title = name as? String
+            annotation.subtitle = address as? String
             
             self.mapView.addAnnotation(annotation)
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)

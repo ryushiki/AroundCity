@@ -59,14 +59,17 @@ class MasterViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "showDetail" {
-//            let indexPath = self.tableView.indexPathForSelectedRow
-//            
-//            let item = facilities[indexPath!.row]
-//            if let vc = segue.destinationViewController as? DetailViewController {
-//                vc.setDetailItem(item, locationItems: locationItems)
-//            }
-//        }
+        if segue.identifier == "showDetail" {
+            let indexPath = self.tableView.indexPathForSelectedRow
+            
+            let item = facilities[indexPath!.row] as? NSDictionary
+            if let vc = segue.destinationViewController as? UINavigationController {
+                if let rootVC = vc.visibleViewController as? DetailViewController {
+                    rootVC.setDetailItem(item!, locationItems: locationService.locationItems)
+                }
+                
+            }
+        }
     }
 }
 
